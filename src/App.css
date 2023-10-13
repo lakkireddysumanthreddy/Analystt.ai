@@ -1,0 +1,74 @@
+.topHeadlines{
+  text-align: center;
+  font-style: italic;
+  font-size: 50px;
+  color: darkolivegreen;
+}
+
+.articleTitle{
+  font-style: italic;
+  color: teal;
+}
+
+.articleAuthor{
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+.articleList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+}
+
+.right{
+  width: 45%;
+}
+
+.left{
+  width: 45%;
+}
+
+.newsList{
+  list-style-type: none;
+}
+.newsImage{
+  height: 160px;
+  width: 160px;
+  background-size: cover;
+}
+
+.backButton{
+  color: white;
+  padding: 5px;
+  background-color: red;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+
+.button{
+  color: white;
+  padding: 5px;
+  background-color: chocolate;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.Description{
+  color: darkorange;
+}
+
+.Content{
+  color: forestgreen;
+}
+
+.Published{
+  color: crimson;
+}
