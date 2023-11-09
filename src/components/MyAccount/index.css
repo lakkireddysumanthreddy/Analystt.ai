@@ -1,0 +1,18 @@
+.myaccount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myaccount-page{
+    background-color:lightcyan;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.heading{
+    font-style: italic;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

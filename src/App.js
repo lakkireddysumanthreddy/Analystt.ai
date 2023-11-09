@@ -1,89 +1,36 @@
-import React, { Component } from 'react';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Cart from './components/Cart';
+import LoginForm from './components/LoginForm';
+import Product from './components/Product';
+import Contact from './components/Contact';
+import MyAccount from './components/MyAccount';
+
 import './App.css';
 
-class NewsApp extends Component {
-  constructor() {
-    super();
-    this.state = {
-      newsData: null,
-      error: null,
-      selectedArticle: null, // Track the selected article
-    };
-  }
+const App = () => {
+  const [cart, setCart] = useState([]);
 
-  componentDidMount() {
-    const apiKey = '12d7e0a36ada4b48b50c26a9ff3c0d76'; // Replace with your NewsAPI key
-    const url = `https://newsapi.org/v2/top-headlines?country=US&apiKey=${apiKey}`;
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ newsData: data });
-      })
-      .catch(error => {
-        this.setState({ error: 'An error occurred while fetching news data' });
-      });
-  }
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/" element={<Home handleAddToCart={handleAddToCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/myaccount" element={<MyAccount />} />
+        </Routes>
+      </Router>
+    </>
+  );
+};
 
-  onClickButton = (article) => {
-    // Set the selected article in the component state
-    this.setState({ selectedArticle: article });
-  }
-
-  goBackToList = () => {
-    // Clear the selected article to go back to the list
-    this.setState({ selectedArticle: null });
-  }
-
-  renderSelectedArticle() {
-    const { selectedArticle } = this.state;
-    if (selectedArticle) {
-      return (
-        <div>
-          <button className='backButton' onClick={this.goBackToList}>Back</button>
-          <p className='Description'><strong>Description:</strong> {selectedArticle.description}</p>
-          <p className='Content'><strong >Content:</strong> {selectedArticle.content}</p>
-          <p className='Published'><strong>Published Date:</strong> {selectedArticle.publishedAt}</p>
-        </div>
-      );
-    }
-    return null;
-  }
-
-  render() {
-    const { newsData, error } = this.state;
-
-    return (
-      <div>
-        <h1 className='topHeadlines'>Top Headlines</h1>
-        {error && <p>{error}</p>}
-        {newsData && (
-          <ul className="newsList">
-            {newsData.articles
-              .filter(article => article.content && article.url !== 'https://removed.com')
-              .map(article => (
-                <li className='articleList' key={article.url}>
-                  <div className='left'>
-                    <h3 className='articleTitle'>{article.title}</h3>
-                    <p className='articleAuthor'><strong>Author:</strong> {article.author}</p>
-                    {article.urlToImage && (
-                      <img className="newsImage" src={article.urlToImage} alt={article.title} />
-                    )}
-                  </div>
-                  <div className='right'>
-                    {this.state.selectedArticle === article ? (
-                      this.renderSelectedArticle()
-                    ) : (
-                      <button className='button' onClick={() => this.onClickButton(article)}>Click here for more info</button>
-                    )}
-                  </div>
-                </li>
-              ))}
-          </ul>
-        )}
-      </div>
-    );
-  }
-}
-
-export default NewsApp;
+export default App;

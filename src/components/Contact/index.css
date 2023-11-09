@@ -1,0 +1,13 @@
+.contactpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.contac-image{
+    height: 300px;
+    width: 400px;
+    background-size: cover;
+    border-radius: 10px;
+}

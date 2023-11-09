@@ -1,0 +1,43 @@
+.homepage{
+   
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.categoriesList{
+  list-style: none;  
+  display: flex;
+}
+
+.images{
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+}
+
+.title{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(25, 42, 59);
+}
+
+.product{
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(236, 147, 37);
+}
+
+.heading{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #561139;
+}
+
+.button{
+    border-radius: 5px;
+    background-color: azure;
+   
+}

@@ -1,0 +1,31 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to left,#a7aa6a, #22c1c3,#fdbb2d);
+    border-radius: 10px;
+    padding: 10px;
+}
+.BS-font{
+    height: 50px;
+    width: 50px;
+}
+
+.shopme{
+    font-size: 30px;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    font-size: 20px;
+    font-weight: 800;
+    color: darkgoldenrod;
+}
+
+.button{
+    border: none;
+    background-color: transparent;
+    font-weight: 800;
+}
